@@ -1,5 +1,4 @@
-// CRAFT // RESUME - Initial Data & Presets
-// Simple, clean, authentic profiles suitable for students and freshers.
+// Resume default data and presets
 
 export const BLANK_RESUME_DATA = {
   personalInfo: {

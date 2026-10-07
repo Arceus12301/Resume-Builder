@@ -27,12 +27,12 @@ export function LinearTemplate({ data }) {
               />
             )}
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10.5px] font-mono font-medium tracking-wide border uppercase mb-1.5"
-                   style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}0d` }}>
-                <span>BSc.IT STUDENT</span>
-                <span>/</span>
-                <span>AVAILABLE FOR INTERNSHIP</span>
-              </div>
+              {personalInfo.jobTitle && (
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10.5px] font-mono font-medium tracking-wide border uppercase mb-1.5"
+                     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}0d` }}>
+                  <span>{personalInfo.jobTitle}</span>
+                </div>
+              )}
               <h1 className="text-3xl font-extrabold tracking-tight text-zinc-950 font-sans">
                 {personalInfo.fullName || ""}
               </h1>

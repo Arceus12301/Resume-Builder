@@ -30,26 +30,15 @@
   background: rgba(113, 113, 122, 0.7);
 }
 
-/* Tactile push physics */
+/* Button press animation */
 .tactile-btn {
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 .tactile-btn:active {
   transform: scale(0.98);
 }
 
-/* Double-bezel hardware chassis */
-.double-bezel-shell {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-}
-
-.double-bezel-core {
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
-}
-
-/* Print Optimization */
+/* Print styling */
 @media print {
   @page {
     size: A4 portrait;
