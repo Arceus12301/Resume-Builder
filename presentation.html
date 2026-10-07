@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeCraft - Technical Presentation</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .slide { display: none; }
+    .slide.active { display: flex; }
+    .fade-in { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Header / Presenter Bar -->
+  <header class="border-b border-slate-800 bg-slate-900/80 px-6 py-4 flex items-center justify-between backdrop-blur-md sticky top-0 z-20">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-sm shadow-md">
+        RC
+      </div>
+      <div>
+        <h1 class="text-sm font-bold text-slate-100 tracking-tight">ResumeCraft — Project Walkthrough</h1>
+        <p class="text-xs text-slate-400">1st Year BSc.IT Web Technology Project · Architecture & Design</p>
+      </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="flex items-center gap-2">
+      <span id="slideCounter" class="text-xs font-mono text-slate-400 px-3 py-1 bg-slate-800/80 rounded-md border border-slate-700">1 / 6</span>
+      <button onclick="prevSlide()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition">Prev</button>
+      <button onclick="nextSlide()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-sm transition">Next</button>
+    </div>
+  </header>
+
+  <!-- Slide Canvas Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-6 md:p-10 flex flex-col justify-center">
+
+    <!-- SLIDE 1: Title & Overview -->
+    <section id="slide-1" class="slide active flex-col space-y-8 fade-in">
+      <div class="space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-medium">
+          <span>PROJECT OVERVIEW</span>
+          <span>•</span>
+          <span>BSc.IT SEMESTER 1</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          How ResumeCraft Works
+        </h2>
+        <p class="text-base text-slate-300 max-w-2xl leading-relaxed">
+          An intuitive, privacy-first web application engineered from scratch using modern web standards to convert structured input into clean, ATS-compliant, print-ready resumes in real time.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-2 hover:border-slate-700 transition">
+          <div class="w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">01</div>
+          <h3 class="font-semibold text-white text-sm">Zero Backend Needed</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Runs 100% inside the browser. No databases, login walls, or third-party data tracking.</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-2 hover:border-slate-700 transition">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold text-sm">02</div>
+          <h3 class="font-semibold text-white text-sm">Synchronous State Engine</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Every keystroke in the form editor immediately propagates to the live A4 preview canvas.</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-2 hover:border-slate-700 transition">
+          <div class="w-8 h-8 rounded-lg bg-purple-600/20 text-purple-400 flex items-center justify-center font-bold text-sm">03</div>
+          <h3 class="font-semibold text-white text-sm">Pixel-Perfect Print Pipeline</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Dedicated print stylesheet eliminates all UI buttons, sidebars, and transforms for vector PDF output.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Core Architecture & Data Flow -->
+    <section id="slide-2" class="slide flex-col space-y-6 fade-in">
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Slide 2 · System Architecture</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">The Single Source of Truth</h2>
+        <p class="text-sm text-slate-400">How data moves through the React components tree.</p>
+      </div>
+
+      <!-- Architecture Diagram Visual -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+          
+          <!-- Input Component -->
+          <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl text-center space-y-2">
+            <span class="text-[11px] font-mono text-blue-400 uppercase font-semibold">User Input</span>
+            <div class="font-bold text-white text-sm">ResumeForm.jsx</div>
+            <p class="text-xs text-slate-400">Accordion form handling education, projects, skills, and image upload.</p>
+          </div>
+
+          <!-- Central State Hub -->
+          <div class="bg-blue-950/40 border-2 border-blue-500/40 p-4 rounded-xl text-center space-y-2">
+            <span class="text-[11px] font-mono text-emerald-400 uppercase font-semibold">Central State (App.jsx)</span>
+            <div class="font-bold text-blue-300 text-sm">resumeData State Hook</div>
+            <p class="text-xs text-slate-300">Synchronizes state & handles auto-save to browser localStorage.</p>
+          </div>
+
+          <!-- Output Component -->
+          <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl text-center space-y-2">
+            <span class="text-[11px] font-mono text-purple-400 uppercase font-semibold">Render Pipeline</span>
+            <div class="font-bold text-white text-sm">ResumePreview.jsx</div>
+            <p class="text-xs text-slate-400">Mounts selected template (Swiss, Linear, Executive, Studio) onto A4 paper.</p>
+          </div>
+
+        </div>
+
+        <!-- Data flow arrows -->
+        <div class="border-t border-slate-800 pt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-400">
+          <div class="flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">✓ LocalStorage Hook:</span>
+            <span>Automatically caches current form state so refreshing never loses user input.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-purple-400 font-bold">✓ JSON Serializer:</span>
+            <span>Imports and exports standard JSON files so users can store backups locally.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Four Template Engines -->
+    <section id="slide-3" class="slide flex-col space-y-6 fade-in">
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Slide 3 · Modular Design</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">4 Specialized Resume Templates</h2>
+        <p class="text-sm text-slate-400">The same resume dataset seamlessly powers 4 distinct layout styles.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Swiss Template -->
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-white text-sm">1. Modern Clean (Swiss)</h3>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Recommended</span>
+          </div>
+          <p class="text-xs text-slate-400">Bold typographic hierarchy, clean horizontal rules, and balanced whitespace. Ideal for college students and general internships.</p>
+        </div>
+
+        <!-- Linear Template -->
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-white text-sm">2. Tech Linear</h3>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Developer</span>
+          </div>
+          <p class="text-xs text-slate-400">Engineered with a monospace touch, colored accent taglines, and compact project cards tailored for software engineering applicants.</p>
+        </div>
+
+        <!-- Executive Template -->
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-white text-sm">3. Classic Academic (Executive)</h3>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-500/10 text-slate-300 border border-slate-500/20">Traditional</span>
+          </div>
+          <p class="text-xs text-slate-400">Centered header layout, serif typography, and formal dividers. Best suited for university scholarships and academic credentials.</p>
+        </div>
+
+        <!-- Studio Template -->
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-white text-sm">4. Two-Column (Studio)</h3>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Sidebar</span>
+          </div>
+          <p class="text-xs text-slate-400">Separates technical skills, certifications, and links into a focused sidebar column, keeping core projects prominent on the right.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Image & Profile Photo Pipeline -->
+    <section id="slide-4" class="slide flex-col space-y-6 fade-in">
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Slide 4 · Media Handling</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">In-Browser Profile Photo Processing</h2>
+        <p class="text-sm text-slate-400">Zero backend file uploads; purely browser-native FileReader and Base64.</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-2xl space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div class="p-4 bg-slate-800/80 rounded-xl space-y-2 border border-slate-700/80">
+            <div class="text-blue-400 font-bold text-sm">Step 1: Selection</div>
+            <p class="text-xs text-slate-400">User selects a local JPG, PNG, or WebP photo via file input (&lt; 2MB limit check).</p>
+          </div>
+          <div class="p-4 bg-slate-800/80 rounded-xl space-y-2 border border-slate-700/80">
+            <div class="text-emerald-400 font-bold text-sm">Step 2: FileReader API</div>
+            <p class="text-xs text-slate-400">HTML5 <code>readAsDataURL()</code> converts image binary directly into a Base64 data string.</p>
+          </div>
+          <div class="p-4 bg-slate-800/80 rounded-xl space-y-2 border border-slate-700/80">
+            <div class="text-purple-400 font-bold text-sm">Step 3: State Sync</div>
+            <p class="text-xs text-slate-400">Stored in <code>personalInfo.photoUrl</code>, enabling instant preview, saving, and export.</p>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800 pt-4 text-xs text-slate-400">
+          <strong class="text-slate-200">Key Advantage:</strong> Since the photo is encoded directly within the resume JSON object, your saved file remains completely self-contained and loads on any computer without broken image links.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: How Print & PDF Export Works -->
+    <section id="slide-5" class="slide flex-col space-y-6 fade-in">
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Slide 5 · Print Engine</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">Flawless Print & PDF Generation</h2>
+        <p class="text-sm text-slate-400">Bypassing heavy third-party PDF libraries using native browser print rules.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-3">
+          <h3 class="font-bold text-white text-sm flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            Screen Mode (Editor)
+          </h3>
+          <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside">
+            <li>Split 2-column layout (Form Editor left, Canvas right).</li>
+            <li>Interactive zoom controls (50% to 120%) using CSS scale transforms.</li>
+            <li>Dark theme container with responsive mobile tabs.</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-3">
+          <h3 class="font-bold text-white text-sm flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Print Mode (@media print)
+          </h3>
+          <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside">
+            <li>Form editor, navbar, footer, and buttons are hidden via <code>display: none !important</code>.</li>
+            <li>Scale transforms reset to <code>transform: none</code> to prevent cutoffs.</li>
+            <li>Standard A4 portrait geometry with zero margins for vector quality PDF saves.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Summary & Highlights -->
+    <section id="slide-6" class="slide flex-col space-y-6 fade-in">
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Slide 6 · Summary</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">Key Takeaways & Tech Stack</h2>
+        <p class="text-sm text-slate-400">Why this approach is practical for student and fresher portfolios.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-center space-y-1">
+          <div class="font-bold text-white text-base">React 19</div>
+          <div class="text-[11px] text-slate-400">Component modularity & reactivity</div>
+        </div>
+        <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-center space-y-1">
+          <div class="font-bold text-white text-base">Tailwind v4</div>
+          <div class="text-[11px] text-slate-400">High performance CSS utility engine</div>
+        </div>
+        <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-center space-y-1">
+          <div class="font-bold text-white text-base">Vite 8</div>
+          <div class="text-[11px] text-slate-400">Sub-second build & instant HMR</div>
+        </div>
+        <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-center space-y-1">
+          <div class="font-bold text-white text-base">Phosphor</div>
+          <div class="text-[11px] text-slate-400">Clean, crisp vector icon set</div>
+        </div>
+      </div>
+
+      <div class="bg-blue-950/30 border border-blue-500/30 rounded-2xl p-5 space-y-2">
+        <h4 class="font-semibold text-blue-300 text-sm">Conclusion</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          ResumeCraft demonstrates how a 1st Year BSc.IT student can build an authentic, production-grade tool by mastering component architecture, state management, HTML5 web APIs, and print styling without relying on complex backends or paid services.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Indicator -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 px-6 py-3 flex items-center justify-between text-xs text-slate-500">
+    <div>Use <strong>Next / Prev</strong> buttons or arrow keys (<strong>← / →</strong>) to navigate</div>
+    <div class="font-mono text-slate-400">ResumeCraft v1.0 Presentation</div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function updateSlide() {
+      for (let i = 1; i <= totalSlides; i++) {
+        const el = document.getElementById(`slide-${i}`);
+        if (el) {
+          if (i === currentSlide) {
+            el.classList.add('active');
+          } else {
+            el.classList.remove('active');
+          }
+        }
+      }
+      const counter = document.getElementById('slideCounter');
+      if (counter) counter.innerText = `${currentSlide} / ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
