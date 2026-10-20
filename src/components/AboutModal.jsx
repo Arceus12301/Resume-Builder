@@ -32,7 +32,7 @@ export function AboutModal({ onClose }) {
         {/* Description */}
         <div className="text-xs text-slate-600 space-y-2.5 leading-relaxed">
           <p>
-            Welcome! This is a simple, lightweight <strong>Online Resume Builder</strong> built by a <strong>1st Year BSc.IT Student</strong> using <strong>React</strong> and <strong>Tailwind CSS</strong>.
+            Welcome! This is a simple, lightweight <strong>Online Resume Builder</strong> created by <strong>Umang Karki</strong> (1st Year BSc.IT Student) using <strong>React</strong> and <strong>Tailwind CSS</strong>.
           </p>
           <p>
             It is designed to help students, freshers, and job seekers create clean, professional resumes quickly without complicated signups or watermarks.

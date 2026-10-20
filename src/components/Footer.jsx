@@ -8,6 +8,17 @@ export function Footer() {
           <GraduationCap size={16} className="text-blue-600" weight="bold" />
           <span>ResumeCraft · 1st Year BSc.IT Web Tech Project</span>
         </div>
+        <div className="flex items-center gap-1 text-slate-600 font-medium text-xs">
+          <span>Created by</span>
+          <a
+            href="https://github.com/Arceus12301"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-700 hover:underline font-semibold"
+          >
+            Umang Karki
+          </a>
+        </div>
         <div className="text-[11px] text-slate-400">
           100% Free · No Sign-in Required · Runs completely in your browser
         </div>
